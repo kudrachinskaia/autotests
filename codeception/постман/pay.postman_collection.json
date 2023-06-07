@@ -1,0 +1,925 @@
+{
+	"info": {
+		"_postman_id": "4f056582-3768-44ec-9a8f-8d88d126e61d",
+		"name": "pay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"name\",\n  \"email\": \"test@mail.ru\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/user/register",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"gfhjkm\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/user/login",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/user/logout",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/user/info",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/user/update",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nationality\": 2,\n    \"citizenship\": 2,\n    \"document_type\": 2,\n    \"postal_code\": 2,\n    \"admin_note\": \"adminNote\",\n    \"first_name\": \"firstName\",\n    \"last_name\": \"lastName\",\n    \"middle_name\": \"middleName\",\n    \"address\": \"address\",\n    \"city\": \"city\",\n    \"birthday\": \"2022-01-01\",\n    \"files\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/user/verification",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"verification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "list user cards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/card",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/card/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update card",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"My Card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/card/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"account_id\": 9\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/card/buy",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "замена карты",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"account_id\": 6\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/card/3/replace",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card",
+								"3",
+								"replace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"account_id\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/card/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currency_id\": 5,\n  \"description\": \"My Account\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/account",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/account",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/account/14",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"account",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"to_account_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/account/4",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"account",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"My Account\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/account/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"account",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dictionary",
+			"item": [
+				{
+					"name": "list currencies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/dictionary/currencies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"currencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list account-types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/dictionary/account-types",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"account-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verification-statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/dictionary/verification-statuses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"verification-statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "document-type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/dictionary/document-type",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"document-type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tariff",
+			"item": [
+				{
+					"name": "tariff list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/tariff",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"tariff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show tariff(1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/tariff/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"tariff",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user subs",
+			"item": [
+				{
+					"name": "subs info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/subscription",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy subs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"count\": 1,\n  \"account_id\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/subscription",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy-info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"count\": 1,\n  \"account_id\": 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/subscription/buy-info",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"subscription",
+								"buy-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transfer",
+			"item": [
+				{
+					"name": "transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"from_account_id\": 16,\n  \"to_user_email\": \"admin@mail.ru\",\n  \"amount\": 500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/transfer/transfer",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"transfer",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exchange-info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"from\": \"XUR\",\n  \"to\": \"BTC\",\n  \"value\": 3220000,\n  \"with_taxes\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.paywallet.test/transfer/exchange-info",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"transfer",
+								"exchange-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "notification",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "new",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.paywallet.test/user/notification/new",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paywallet",
+								"test"
+							],
+							"path": [
+								"user",
+								"notification",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contents list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.paywallet.test/content/list",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paywallet",
+						"test"
+					],
+					"path": [
+						"content",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/mac-o/Downloads/file.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.paywallet.test/file",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paywallet",
+						"test"
+					],
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "integr-merch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operation_ps\": \"1\",\n    \"operation_date\": \"2022-02-02 13:19:57\",\n    \"operation_pay_date\": \"2022-02-03 11:59:09\",\n    \"description\": \"Donate me!\",\n    \"txid\": \"9c02f263b5cbc38828a8ba19d0d336d9592829ca9799a77ca3c19ef5cec98f9e\",\n    \"amount\": \"0.00045\",\n    \"address\": \"tb1qwxfkltfz2nky9xned2gfhqdtu645pylrxagte8\",\n    \"currency\": \"BTC\",\n    \"status\": \"20\",\n    \"sign\": \"4A1EBB8480BA0E182C19AF83F64A0FA9C1E149912A8920483A53CFAEC04999C2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.paywallet.test/webhooks/payments/btc",
+					"protocol": "https",
+					"host": [
+						"api",
+						"paywallet",
+						"test"
+					],
+					"path": [
+						"webhooks",
+						"payments",
+						"btc"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "UMiHmyD74bom8ULsxuLpIvNreifJsNOQQfDUoIPr",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://api.paywallet.test/",
+			"type": "string"
+		}
+	]
+}

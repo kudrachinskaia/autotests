@@ -55,3 +55,31 @@ it("Negative - Привязка карты с нулевым балансом", 
     });
   });
 });
+
+/* этого функционала еще нет
+//сейчас у всех карт присваивается mein - true
+
+it("Привязка нескольких карт пользователю", () => {
+  const cardNumbers = [4000000000003055, 5205000000003055, 2202000000003055];
+
+  cy.registerAndGetUserData().then((user) => {
+    for (let i = 0; i < cardNumbers.length; i++) {
+      cy.log(`Привязка карты ${i + 1} пользователю`);
+      cy.getFirstAndLastNumberCard(cardNumbers[i]).then((numbers) => {
+        cy.bindCardToUser(user.token, cardNumbers[i]).then((cardId) => {
+          cy.checkBindedCard(user.token, cardId, numbers);
+          //проверка что мейн карта только у первой
+        });
+      });
+    }
+  });
+});
+it("Update main карты пользователю", () => {
+});
+  it("Удаление карты пользователя", () => {
+  });
+  it("Negative - Удаление основной карты пользователя", () => {
+  });
+  it("Negative - Удаление всех карт пользователя", () => {
+  });
+*/

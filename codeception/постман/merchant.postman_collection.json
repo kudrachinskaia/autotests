@@ -1,0 +1,922 @@
+{
+	"info": {
+		"_postman_id": "4dc42bc7-57d7-41a4-92e1-f5a0e09a0273",
+		"name": "merchant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@mail.ru\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/user/register",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/user/login?email=test@mail.ru&password=password",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test@mail.ru"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/user/logout",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/user/info",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"password\": \"string\",\n  \"default_wallet_id\": 0,\n  \"default_store_id\": 0,\n  \"system_ids\": [\n    1\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/user/update",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@test.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/user/check",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"testadmin@mail.ru\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/user/reset-password",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"user",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client order",
+			"item": [
+				{
+					"name": "check",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"42c5e51c-4ff3-4c90-82ad-60e03e34a037\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/order/check",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system_id\": \"1\",\n  \"email\": \"email@domain.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/order/1/checkout",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order",
+								"1",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/order/1/status",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order",
+								"1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "magaszine order",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"store_id\": 1,\n  \"description\": \"Some Description\",\n  \"amount\": 12.345,\n  \"currency_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/order",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/order",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/order/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/order/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wallet",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system_id\": 1,\n  \"title\": \"My BTC Wallet\",\n  \"password\": \"best_password!123412!@#E_\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/wallet",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user wallets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/wallet",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user wallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/wallet/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"wallet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/wallet/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"wallet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"My BTt\",\n  \"system_id\": [\n    1\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/wallet/3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"wallet",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stores",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Store\",\n  \"description\": \"\",\n  \"default_currency_id\": 1,\n  \"wallet_password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/store",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/store",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/store/3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Best Store\",\n  \"description\": \"Best store ever\",\n  \"default_currency_id\": 1,\n  \"currency_ids\": [],\n  \"wallet_ids\": [1],\n  \"links\": [\n    {\n      \"type\": 10,\n      \"url\": \"https://url.domain/webhook/fail\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/store/3",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/store/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "secret key generation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/store/1/key",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"store",
+								"1",
+								"key"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"wallet_id\": 1,\n  \"store_id\": 1,\n  \"description\": \"Donate me!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/address",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"wallet_id\": 1,\n  \"store_id\": 1,\n  \"count\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/address/group",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"address",
+								"group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/address",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/address/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"address",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"store_id\": 1,\n  \"description\": \"Donate me!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.merch.test/address/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"address",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dictionary",
+			"item": [
+				{
+					"name": "systems list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/dictionary/systems",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"systems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currencies list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/dictionary/currencies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"currencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order-statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/dictionary/order-statuses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"order-statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "link-types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.merch.test/dictionary/link-types",
+							"protocol": "https",
+							"host": [
+								"api",
+								"merch",
+								"test"
+							],
+							"path": [
+								"dictionary",
+								"link-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "qkDmnNVaOF8fiyIhRg6GbIlrzNdC1VN0xcHyrWIy",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

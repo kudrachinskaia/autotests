@@ -1,14 +1,15 @@
+//надо переписывать
+
+const devRu = Cypress.env("devRu");
+const devCom = Cypress.env("devCom");
+const password = Cypress.env("password");
+
 describe(
   "Проверка доступности страниц на DEV RU и DEV COM",
   {
     retries: 1,
   },
   () => {
-    const devRu = Cypress.env("devRu");
-    const devCom = Cypress.env("devCom");
-
-    const password = "Password1";
-
     describe("DEV RU", () => {
       function errorLinksRu() {
         var links = [
@@ -47,7 +48,7 @@ describe(
           "/course/618be30071b92400278c5be8/0/0/0": "Лекции",
         };
 
-        errorLinksRu()
+        errorLinksRu();
         for (var url in pagesNonAuthProdRu) {
           var title = pagesNonAuthProdRu[url];
           cy.visit(`${devRu}${url}`);
@@ -84,25 +85,27 @@ describe(
                   cy.log("Покупка подписки");
                   cy.buySubscription(monthTariff, user.token, cardId).then(
                     () => {
-                      cy.visit(devRu + "/account/login");
-                      cy.get("form");
-                      cy.get("input[name='email']").type(
-                        "testart+6306888@getnada.com",
-                        {
-                          force: true,
-                        }
-                      );
-                      cy.get("input[name='password']").type(password, {
-                        force: true,
-                      });
-                      cy.get("form").submit();
-                      cy.wait(5000).then(() => {
-                        cy.url().should("include", "/my-courses");
-                        for (var url in pagesPersonalCabinetDevRu) {
-                          var title = pagesPersonalCabinetDevRu[url];
-                          cy.visit(devRu + url);
-                          cy.contains(title);
-                        }
+                      cy.wait(60000).then(() => {
+                        cy.log("Проверка активного статуса подписки");
+                        cy.checkStatusSubscription(token, 0).then(() => {
+                          cy.visit(devRu + "/account/login");
+                          cy.get("form");
+                          cy.get("input[name='email']").type(user.email, {
+                            force: true,
+                          });
+                          cy.get("input[name='password']").type(password, {
+                            force: true,
+                          });
+                          cy.get("form").submit();
+                          cy.wait(5000).then(() => {
+                            cy.url().should("include", "/my-courses");
+                            for (var url in pagesPersonalCabinetDevRu) {
+                              var title = pagesPersonalCabinetDevRu[url];
+                              cy.visit(devRu + url);
+                              cy.contains(title);
+                            }
+                          });
+                        });
                       });
                     }
                   );
@@ -150,7 +153,7 @@ describe(
           //проверка на один курс
           "/course/63edce1cbcb16f0028018798/0/0/0": "Progress",
         };
-        errorLinksCom()
+        errorLinksCom();
         for (var url in pagesNonAuthProdCom) {
           var title = pagesNonAuthProdCom[url];
           cy.visit(`${devCom}${url}`);
@@ -187,22 +190,27 @@ describe(
                   cy.log("Покупка подписки");
                   cy.buySubscription(monthTariff, user.token, cardId).then(
                     () => {
-                      cy.visit(devCom + "/account/login");
-                      cy.get("form");
-                      cy.get("input[name='email']").type(user.email, {
-                        force: true,
-                      });
-                      cy.get("input[name='password']").type(password, {
-                        force: true,
-                      });
-                      cy.get("form").submit();
-                      cy.wait(5000).then(() => {
-                        cy.url().should("include", "/my-courses");
-                        for (var url in pagesPersonalCabinetDevCom) {
-                          var title = pagesPersonalCabinetDevCom[url];
-                          cy.visit(devCom + url);
-                          cy.contains(title);
-                        }
+                      cy.wait(60000).then(() => {
+                        cy.log("Проверка активного статуса подписки");
+                        cy.checkStatusSubscription(token, 0).then(() => {
+                          cy.visit(devCom + "/account/login");
+                          cy.get("form");
+                          cy.get("input[name='email']").type(user.email, {
+                            force: true,
+                          });
+                          cy.get("input[name='password']").type(password, {
+                            force: true,
+                          });
+                          cy.get("form").submit();
+                          cy.wait(5000).then(() => {
+                            cy.url().should("include", "/my-courses");
+                            for (var url in pagesPersonalCabinetDevCom) {
+                              var title = pagesPersonalCabinetDevCom[url];
+                              cy.visit(devCom + url);
+                              cy.contains(title);
+                            }
+                          });
+                        });
                       });
                     }
                   );
@@ -353,6 +361,58 @@ describe(
         cy.clearCookies();
         cy.clearLocalStorage();
       });
+
+      /*it("Регистрация пользователя после выбора тарифа", () => {
+        cy.visit(devCom + "/subscription");
+        //выбор тарифа и регистрация пользователя
+        cy.get("div[class='tariff-block ng-star-inserted']:first").within(
+          () => {
+            cy.get(
+              'button[class="afi-btn afi-primary afi-btn-sm tariff-block-button"]'
+            ).click({ force: true });
+          }
+        );
+        cy.contains("Log in or sign up");
+        cy.contains("Log in").click()
+        cy.contains("Forgot your password?")
+        cy.get("form");
+        cy.get("input[name='email']").type(com1Email, {
+          force: true,
+        });
+        cy.get("input[name='password']").type(password, { force: true });
+        cy.get("form").submit();
+        cy.wait(5000).then(() => {
+          cy.log("Открытие попапа для оплаты");
+          cy.contains(
+            "To complete the subscription, you need to provide your card information."
+          );
+        });
+      });
+
+      it("Авторизация пользователя после выбора тарифа", () => {
+        cy.visit(devCom + "/subscription");
+        //выбор тарифа и авторизация пользователя
+        cy.get("div[class='tariff-block ng-star-inserted']:first").within(
+          () => {
+            cy.get(
+              'button[class="afi-btn afi-primary afi-btn-sm tariff-block-button"]'
+            ).click({ force: true });
+          }
+        );
+        cy.contains("Log in or sign up");
+        cy.get("form");
+        cy.get("input[name='email']").type(com1Email, {
+          force: true,
+        });
+        cy.get("input[name='password']").type(password, { force: true });
+        cy.get("form").submit();
+        cy.wait(5000).then(() => {
+          cy.log("Открытие попапа для оплаты");
+          cy.contains(
+            "To complete the subscription, you need to provide your card information."
+          );
+        });
+      });*/
 
       it("Свежезареганный пользователь", () => {
         cy.visit(devCom + "/account/register");

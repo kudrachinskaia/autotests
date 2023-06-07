@@ -9,9 +9,7 @@ Cypress.Commands.add("getCard", () => {
     with3DSecureSuccess: 4242424242424242,
     with3DSecureUnsuccess: 4012888888881881,
   };
-  var randomIndex = Math.floor(
-    Math.random() * cards.no3DSecureSuccess.length
-  );
+  var randomIndex = Math.floor(Math.random() * cards.no3DSecureSuccess.length);
   var cardData = {
     no3DSecureSuccess: cards.no3DSecureSuccess[randomIndex],
     no3DSecureUnsuccess: cards.no3DSecureUnsuccess,
@@ -68,16 +66,20 @@ year
 month
 */
 Cypress.Commands.add("getTariff", (periodLabel) => {
-  return cy.request({
-    method: "GET",
-    url: `${apiNew}/tariffs`,
-  }).then((result) => {
-    const tariff = result.body.data.find((t) => t.periodLabel === periodLabel);
-    if (!tariff) {
-      throw new Error(`Нет тарифа с таким периодом'${periodLabel}'`);
-    }
-    return tariff.id
-  });
+  return cy
+    .request({
+      method: "GET",
+      url: `${apiNew}/tariffs`,
+    })
+    .then((result) => {
+      const tariff = result.body.data.find(
+        (t) => t.periodLabel === periodLabel
+      );
+      if (!tariff) {
+        throw new Error(`Нет тарифа с таким периодом'${periodLabel}'`);
+      }
+      return tariff.id;
+    });
 });
 
 //Генерация cardExpireDate
@@ -118,5 +120,115 @@ Cypress.Commands.add("getExternalId", (email) => {
       }
       return subscription.externalId;
     });
+  });
+});
+
+/* Отдает одно из значений x-device-uid
+  Iphone 13: 384078453, 4245410370, 1951898248
+  Iphone 13 Pro: 812999805, 812999805
+  Iphone 13 Pro Max: 1502315250
+  Iphone 12 Pro: 3217883995
+  MAC: 98014819, 694018251
+  хром: 3691908401
+  //декстопные добавить и андройд
+  */
+Cypress.Commands.add("getDeviceId", () => {
+  const deviceIds = [
+    384078453, 4245410370, 1951898248, 812999805, 812999805, 1502315250,
+    3217883995, 98014819, 694018251, 3691908401,
+  ];
+  const randomIndex = Math.floor(Math.random() * deviceIds.length);
+  return deviceIds[randomIndex];
+});
+
+/*получение id категорий курсов(categoryId) и id подкатегорий(цели)(goalId)
+количество категорий отдается в зависимости от переданного параметра categoryCount, количество целей от goalsCount*/
+Cypress.Commands.add(
+  "getCategoriesAndGoals",
+  (token, categoryCount, goalsCount) => {
+    cy.request({
+      method: "GET",
+      url: `${apiNew}/categories`,
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      // Получение указанного количества случайных категорий
+      let categoriesIndex = [];
+      let count = categoryCount;
+      while (count > 0) {
+        let index = Math.floor(
+          Math.random() * response.body.data.categories.length
+        );
+        if (!categoriesIndex.includes(index)) {
+          categoriesIndex.push(index);
+          count--;
+        }
+      }
+      let categoryIds = categoriesIndex.map(
+        (index) => response.body.data.categories[index].id
+      );
+      let categoriesNames = categoriesIndex.map(
+        (index) => response.body.data.categories[index].name.ru
+      );
+      // Получаем все цели, либо указанное количество случайных целей из каждой категории
+      let goalsIds = [];
+      for (let i = 0; i < categoriesIndex.length; i++) {
+        let category = response.body.data.categories[categoriesIndex[i]];
+        let goals =
+          goalsCount === "all"
+            ? category.children
+            : category.children.slice(0, goalsCount);
+        goalsIds.push(...goals.map((goal) => goal.id));
+      }
+      let goalsNames = goalsIds.map(
+        (goalId) =>
+          response.body.data.categories
+            .find((category) =>
+              category.children.some((goal) => goal.id === goalId)
+            )
+            .children.find((goal) => goal.id === goalId).name.ru
+      );
+      return {
+        categoryIds: categoryIds,
+        goalsIds: goalsIds,
+        categoriesNames: categoriesNames,
+        goalsNames: goalsNames,
+      };
+    });
+  }
+);
+
+//получение id курса/курсов по цели/целям.all - все курсы, если ничего не передавать - один курс
+Cypress.Commands.add("getCourseFromGoal", (token, goalIds, coursesCount) => {
+  // преобразовать goalIds в строку и вставить в URL запроса
+  const categoryIdParam = Array.isArray(goalIds) ? goalIds.join(",") : goalIds;
+  const url = `${apiNew}/courses?categoryId=${categoryIdParam}`;
+
+  cy.request({
+    method: "GET",
+    url: url,
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    // Получаем указанное количество случайных курсов
+    let courseIds = [];
+    let courseTitles = [];
+    for (
+      let i = 0;
+      i < Math.min(coursesCount, response.body.data.courses.length);
+      i++
+    ) {
+      let coursesIndex = Math.floor(
+        Math.random() * response.body.data.courses.length
+      );
+      let courseId = response.body.data.courses[coursesIndex].id;
+      let courseTitle = response.body.data.courses[coursesIndex].title;
+      courseIds.push(courseId);
+      courseTitles.push(courseTitle);
+      response.body.data.courses.splice(coursesIndex, 1);
+    }
+    return { courseId: courseIds, courseTitle: courseTitles };
   });
 });

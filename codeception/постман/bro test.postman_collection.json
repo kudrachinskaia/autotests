@@ -1,0 +1,1138 @@
+{
+	"info": {
+		"_postman_id": "a109de29-aae8-46ef-952d-d4947ba59ec8",
+		"name": "bro test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user - register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"1@bro.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"1@bro.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3JQUMxpcSMdO5ya7OxGQkQCxTJ5KNdolTGsasytO",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user/logout",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - activate e-mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"5|ATwcLNAS5T2sNO0OPOHBDnVSq8SVcoQH11vL2OtJ\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/activate",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/user/info",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "13|UhJQW5NdGxv4wrivZQVPbU8bSBrYQHevjtuim8s7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"admin@bro.com\",\n  \"name\": \"admin\",\n  \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/update",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user - check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "13|UhJQW5NdGxv4wrivZQVPbU8bSBrYQHevjtuim8s7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@bro.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/check",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@bro.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/reset-password",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "set-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "17|AHv9DBHU85vMnS7qZNehl2JNRX5iWcawaRx7Hy4l",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"15|2wV9gepXjaryte58JIIiN5W2ZfOmYpgnmTJJdmzM\",\n  \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/user/set-password",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"set-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "корзина - заполнить",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"payment_method_code\": \"btc\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"market_account\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/order/fill",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"order",
+						"fill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "корзина - чекаут",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/order/checkout",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"order",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "корзина - заказ до чекаут",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/order",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "список заказов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/order/list",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"order",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "корзина - оплата btc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/webhooks/payment/btc?sum=0.00012143&txid=qwe45уаыва&user_id=1-1-5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"webhooks",
+						"payment",
+						"btc"
+					],
+					"query": [
+						{
+							"key": "sum",
+							"value": "0.00012143"
+						},
+						{
+							"key": "txid",
+							"value": "qwe45уаыва"
+						},
+						{
+							"key": "user_id",
+							"value": "1-1-5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enum/models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/enum/models",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"enum",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "магазин - аккаунты",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/market/accounts?country_id=58&seller_id=1&service_id=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"market",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "country_id",
+							"value": "58"
+						},
+						{
+							"key": "seller_id",
+							"value": "1"
+						},
+						{
+							"key": "service_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "магазин - прокси",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/market/proxies?proxy_type=1&seller_id=1&country_id=58",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"market",
+						"proxies"
+					],
+					"query": [
+						{
+							"key": "proxy_type",
+							"value": "1"
+						},
+						{
+							"key": "seller_id",
+							"value": "1"
+						},
+						{
+							"key": "country_id",
+							"value": "58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "магазин - user-agents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/market/user-agents?os_name=Android&seller_id=1&browser_name=Chrome",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"market",
+						"user-agents"
+					],
+					"query": [
+						{
+							"key": "os_name",
+							"value": "Android"
+						},
+						{
+							"key": "seller_id",
+							"value": "1"
+						},
+						{
+							"key": "browser_name",
+							"value": "Chrome"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "магазин - bms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/market/bms?seller_id=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"market",
+						"bms"
+					],
+					"query": [
+						{
+							"key": "seller_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/profile",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile - add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Profile name\",\n  \"owner_id\": 1,\n  \"proxy_id\": 1,\n  \"ua_id\": 1,\n  \"bm_id\": 1,\n  \"accounts\": [\n    1\n  ],\n  \"settings\": {\n    \"os_id\": 1,\n    \"resolution_id\": 1,\n    \"ext_timezone\": true,\n    \"ext_geo\": true,\n    \"ext_web_rtc\": true,\n    \"mask_media_devices\": true,\n    \"audio_inputs\": 2,\n    \"audio_outputs\": 2,\n    \"video_inputs\": 2,\n    \"webgl_vendor\": \"Google inc.\",\n    \"webgl_renderer\": \"ANGLE\",\n    \"ram\": 1,\n    \"cpu_threads\": 1,\n    \"language\": \"Russia (RU)\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/profile",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile/id - get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/profile/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile/id - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Profile5\",\n  \"proxy_id\": 1,\n  \"ua_id\": 1,\n  \"bm_id\": 1,\n  \"accounts\": [\n    1\n  ],\n  \"settings\": {\n    \"os_id\": 1,\n    \"resolution_id\": 1,\n    \"ext_timezone\": true,\n    \"ext_geo\": true,\n    \"ext_web_rtc\": true,\n    \"mask_media_devices\": true,\n    \"audio_inputs\": 2,\n    \"audio_outputs\": 2,\n    \"video_inputs\": 2,\n    \"webgl_vendor\": \"Google inc.\",\n    \"webgl_renderer\": \"ANGLE\",\n    \"ram\": 1,\n    \"cpu_threads\": 1,\n    \"language\": \"Russia (RU)\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/profile/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile/id - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/profile/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tags - of User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/tag",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tag - add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"my_tag\",\n  \"color\": \"FE1212\",\n  \"owner_id\": 1,\n  \"model_id\": 1,\n  \"model_type\": \"account\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/tag",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "загрузка файлов",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/kudrachinskaya/Рабочий стол/file"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/file",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inventory proxy check",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/kudrachinskaya/Рабочий стол/file"
+						},
+						{
+							"key": "mask",
+							"value": "{host}:{port}:{login}:{password}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/inventory/proxy/check",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"inventory",
+						"proxy",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Add Proxy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": 1,\n  \"name\": \"proxy_name\",\n  \"owner_id\": 1,\n  \"country_id\": 1,\n  \"host\": \"127.0.0.1\",\n  \"port\": 1234,\n  \"login\": \"some_login\",\n  \"password\": \"password\",\n  \"status\": 1,\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/inventory/proxy",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"inventory",
+						"proxy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Add Ua",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"some_name\",\n  \"owner_id\": 1,\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/inventory/user-agent",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"inventory",
+						"user-agent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Add Bm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"bm_name\",\n  \"url\": \"https://some-url.com/\",\n  \"description\": \"Some description for this bm\",\n  \"properties\": {},\n  \"owner_id\": 1,\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/inventory/bm",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"inventory",
+						"bm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Add Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"account_service_id\": 1,\n  \"country_id\": 1,\n  \"owner_id\": 1,\n  \"status\": 1,\n  \"login\": \"some_login\",\n  \"email\": \"email@domain.com\",\n  \"password\": \"password\",\n  \"token\": \"znvxh9ou16475wiq12weqs\",\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/inventory/account",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"inventory",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/team",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"1@mail.ru\",\n  \"name\": \"Вася\",\n  \"token\": \"xLIkjuJ0apxOACKkflygOUrBEyGu5oLkKwZUu30A\",\n  \"send_mail\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/team",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"z.tanir@gmail.com\",\n    \"send_email\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/team/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"team",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscription - get tariffs list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/subscription/tariffs",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"subscription",
+						"tariffs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscription - buy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"payment_method_code\": \"btc\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/subscription/buy",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"subscription",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscription - оплата btc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/webhooks/payment/btc?sum=0.0066793&txid=subsc&user_id=1-3-3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"webhooks",
+						"payment",
+						"btc"
+					],
+					"query": [
+						{
+							"key": "sum",
+							"value": "0.0066793"
+						},
+						{
+							"key": "txid",
+							"value": "subsc"
+						},
+						{
+							"key": "user_id",
+							"value": "1-3-3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin tariffs - get list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/tariff",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"tariff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin tariffs - add tariff",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test team\",\n  \"slug\": \"test-team\",\n  \"price\": \"50\",\n  \"limit_profiles\": 5,\n  \"limit_teammates\": 5,\n  \"duration\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/admin/tariff",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"tariff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin tariffs - update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test\",\n  \"slug\": \"test\",\n  \"price\": \"12.34\",\n  \"limit_profiles\": 10,\n  \"limit_teammates\": 20,\n  \"duration\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/admin/tariff/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"tariff",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin tariffs - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/tariff/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"tariff",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin tariffs - get tariff",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/tariff/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"tariff",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "tIP1ipIO3Nv1gvlzb5TYdzhIo6wMm5HDNrqMEfWg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://browser.test"
+		}
+	]
+}
